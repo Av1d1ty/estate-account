@@ -12,9 +12,6 @@ class EstateProperty(models.Model):
                 % (self.company_id.name, self.company_id.id))
 
         for prop in self:
-            print('-----------------------')
-            print(prop.buyer_id)
-            print(prop.buyer_id.id)
             self.env['account.move'].create({
                 'move_type': 'out_invoice',
                 'partner_id': prop.buyer_id.id,  # it's actually a recordset: res.partner(31,)
